@@ -244,7 +244,8 @@ public class UnstructuredStorageReaderUtil {
 		Character fieldDelimiter = null;
 		String delimiterInStr = readerSliceConfig
 				.getString(Key.FIELD_DELIMITER);
-		if (null != delimiterInStr && 1 != delimiterInStr.length()) {
+		//if (null != delimiterInStr && 1 != delimiterInStr.length()) {
+		if (false) {
 			throw DataXException.asDataXException(
 					UnstructuredStorageReaderErrorCode.ILLEGAL_VALUE,
 					String.format("仅仅支持单字符切分, 您配置的切分为 : [%s]", delimiterInStr));
@@ -321,7 +322,8 @@ public class UnstructuredStorageReaderUtil {
 		// 注意: nullFormat 没有默认值
 		String nullFormat = configuration.getString(Key.NULL_FORMAT);
 		String delimiterInStr = configuration.getString(Key.FIELD_DELIMITER);
-		if (null != delimiterInStr && 1 != delimiterInStr.length()) {
+		//if (null != delimiterInStr && 1 != delimiterInStr.length()) {
+		if (false) {
 			throw DataXException.asDataXException(
 					UnstructuredStorageReaderErrorCode.ILLEGAL_VALUE,
 					String.format("仅仅支持单字符切分, 您配置的切分为 : [%s]", delimiterInStr));
@@ -575,11 +577,11 @@ public class UnstructuredStorageReaderUtil {
 			throw DataXException.asDataXException(UnstructuredStorageReaderErrorCode.REQUIRED_VALUE,
 					String.format("您提供配置文件有误，[%s]是必填参数.",
 							com.alibaba.datax.plugin.unstructuredstorage.reader.Key.FIELD_DELIMITER));
-		}else if(1 != delimiterInStr.length()){
+		}//else if(1 != delimiterInStr.length()){
 			// warn: if have, length must be one
-			throw DataXException.asDataXException(UnstructuredStorageReaderErrorCode.ILLEGAL_VALUE,
-					String.format("仅仅支持单字符切分, 您配置的切分为 : [%s]", delimiterInStr));
-		}
+			//throw DataXException.asDataXException(UnstructuredStorageReaderErrorCode.ILLEGAL_VALUE,
+					//String.format("仅仅支持单字符切分, 您配置的切分为 : [%s]", delimiterInStr));
+		//}
 	}
 
 	public static void validateColumn(Configuration readerConfiguration) {
