@@ -1,0 +1,61 @@
+server:
+  port: 8071
+  tomcat:
+    max-threads: 800
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: dbtransfor-node
+  resources:
+    static-locations: classpath:/statics/
+    #热部署支持
+    #devtools:
+    #  restart:
+    #   enabled: true
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    name: sjcsNode
+    url: jdbc:derby:/Users/wf/Desktop/datax/codes/DataX/db-derby-10.14.2.0/database/sjcsNode
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.apache.derby.jdbc.EmbeddedDriver
+    initial-size: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    filters: stat
+    validationQuery: select 1 from sysibm.sysdummy1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+page:
+  limit: 20
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*/*.xml
+  type-aliases-package: vo.pojo.model
+  check-config-location: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: null
+    auto-mapping-unknown-column-behavior: warning
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: uuid
+      field-strategy: not_empty
+      capital-mode: true
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+
