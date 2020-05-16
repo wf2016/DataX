@@ -99,8 +99,7 @@ public class UnstructuredStorageWriterUtil {
         String delimiterInStr = writerConfiguration
                 .getString(Key.FIELD_DELIMITER);
         // warn: if have, length must be one
-        //if (null != delimiterInStr && 1 != delimiterInStr.length()) {
-        if (false) {
+        if (null != delimiterInStr && 1 != delimiterInStr.length()) {
             throw DataXException.asDataXException(
                     UnstructuredStorageWriterErrorCode.ILLEGAL_VALUE,
                     String.format("仅仅支持单字符切分, 您配置的切分为 : [%s]", delimiterInStr));

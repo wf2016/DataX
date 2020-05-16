@@ -208,6 +208,15 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!--fmq传输组件-->
+        <dependency>
+            <groupId>com.fmq</groupId>
+            <artifactId>FMQJavaAPI</artifactId>
+            <scope>system</scope>
+            <version>8.5.8.1</version>
+            <systemPath>${basedir}/lib/fmq/FMQJavaAPI.8.5.8.1.jar</systemPath>
+        </dependency>
+
         <!--内嵌数据库-->
         <dependency>
             <groupId>org.apache.derby</groupId>

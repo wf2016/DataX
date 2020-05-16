@@ -78,8 +78,7 @@ class TextWriterImpl implements UnstructuredWriter {
             LOG.info("Found one record line which is empty.");
         }
         this.textWriter.write(String.format("%s%s",
-                //StringUtils.join(splitedRows, this.fieldDelimiter),
-                StringUtils.join(splitedRows, "\t#$#\t"),
+                StringUtils.join(splitedRows, this.fieldDelimiter),
                 IOUtils.LINE_SEPARATOR));
     }
 
