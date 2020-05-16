@@ -1,4 +1,4 @@
-package com.fri.sjcs.model.entity.json;
+package com.fri.sjcs.csdm.model.entity.json;
 
 public class Response {
 	private String code;

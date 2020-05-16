@@ -1,8 +1,8 @@
-package com.fri.sjcs.csd.dao.mapper;
+package com.fri.sjcs.csdm.dao.mapper;
 
 import java.util.List;
 
-import com.fri.sjcs.model.entity.Consumer;
+import com.fri.sjcs.csdm.model.entity.Consumer;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

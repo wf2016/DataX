@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fri.sjcs.csdm.dao.interfaces.RwxxDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.fri.sjcs.csdm.model.entity.RwxxEntity">
+        <id column="ID" property="id" />
+        <result column="RWID" property="rwid" />
+        <result column="ISCREATE" property="iscreate" />
+        <result column="RWLX" property="rwlx" />
+        <result column="CORN" property="corn" />
+        <result column="WHERE" property="where" />
+        <result column="USERWHERE" property="userwhere" />
+        <result column="RDJSON" property="rdjson" />
+        <result column="WRJSON" property="wrjson" />
+        <result column="RWZT" property="rwzt" />
+    </resultMap>
+
+    <update id="createtb" parameterType="String" >
+        create table rwxx(
+            id varchar(255),
+            iscreate varchar(255),
+            rwid varchar (255),
+            rwlx varchar(255),
+            corn varchar(255),
+            cwhere varchar(255),
+            userwhere varchar(255),
+            rdjson varchar(255),
+            wrjson varchar(255),
+            rwzt varchar(255),
+            primary key (id))
+    </update>
+
+</mapper>

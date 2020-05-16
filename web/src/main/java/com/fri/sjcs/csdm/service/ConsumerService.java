@@ -1,9 +1,9 @@
-package com.fri.sjcs.csd.service;
+package com.fri.sjcs.csdm.service;
 
 import java.util.List;
 
-import com.fri.sjcs.csd.dao.mapper.ConsumerMapper;
-import com.fri.sjcs.model.entity.Consumer;
+import com.fri.sjcs.csdm.dao.mapper.ConsumerMapper;
+import com.fri.sjcs.csdm.model.entity.Consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.stereotype.Service;

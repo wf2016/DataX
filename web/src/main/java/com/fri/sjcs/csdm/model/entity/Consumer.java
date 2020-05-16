@@ -1,4 +1,4 @@
-package com.fri.sjcs.model.entity;
+package com.fri.sjcs.csdm.model.entity;
 
 public class Consumer {
 	private Long id;

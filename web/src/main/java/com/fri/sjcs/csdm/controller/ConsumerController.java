@@ -1,11 +1,11 @@
-package com.fri.sjcs.csd.controller;
+package com.fri.sjcs.csdm.controller;
 
 import java.util.Arrays;
 import java.util.List;
 
-import com.fri.sjcs.csd.service.ConsumerService;
-import com.fri.sjcs.model.entity.Consumer;
-import com.fri.sjcs.model.entity.json.Response;
+import com.fri.sjcs.csdm.service.ConsumerService;
+import com.fri.sjcs.csdm.model.entity.Consumer;
+import com.fri.sjcs.csdm.model.entity.json.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
@@ -27,7 +27,7 @@ public class ConsumerController {
     private String limit;
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public com.fri.sjcs.model.entity.json.Response create(@RequestParam String id, @RequestParam String name, @RequestParam String age, @RequestParam String sex) {
+	public com.fri.sjcs.csdm.model.entity.json.Response create(@RequestParam String id, @RequestParam String name, @RequestParam String age, @RequestParam String sex) {
 		Response response = new Response();
 		try {
 			consumerService.create(id, name, age, sex);
