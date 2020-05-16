@@ -47,7 +47,7 @@ public class RwConstant {
             "            \"encoding\": \"utf-8\",\n" +
             "            \"dateFormat\": \"yyyy-MM-dd\",\n" +
             "            \"writeMode\": \"truncate\",\n" +
-            "            \"fieldDelimiter\": \"\\t#$#\\t\"\n" +
+            "            \"fieldDelimiter\": \"⚡\"\n" +
             "          }\n" +
             "        }\n" +
             "      }\n" +

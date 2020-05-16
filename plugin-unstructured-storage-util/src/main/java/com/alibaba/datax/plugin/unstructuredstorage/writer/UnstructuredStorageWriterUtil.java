@@ -256,8 +256,7 @@ public class UnstructuredStorageWriterUtil {
                 Constant.FILE_FORMAT_TEXT);
 
         String delimiterInStr = config.getString(Key.FIELD_DELIMITER);
-        //if (null != delimiterInStr && 1 != delimiterInStr.length()) {
-        if (false ) {
+        if (null != delimiterInStr && 1 != delimiterInStr.length()) {
             throw DataXException.asDataXException(
                     UnstructuredStorageWriterErrorCode.ILLEGAL_VALUE,
                     String.format("仅仅支持单字符切分, 您配置的切分为 : [%s]", delimiterInStr));
