@@ -3,6 +3,7 @@ package com.alibaba.datax.core.util;
 import com.alibaba.datax.common.exception.DataXException;
 import com.alibaba.datax.common.util.Configuration;
 import com.alibaba.datax.core.util.container.CoreConstant;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.client.methods.HttpGet;
@@ -70,8 +71,19 @@ public final class ConfigParser {
         return Configuration.from(new File(path));
     }
 
+    /**
+     * 调整增加直接传入json的情况
+     */
     public static Configuration parseJobConfig(final String path) {
-        String jobContent = getJobContent(path);
+        String jobContent = null;
+
+        try{
+            JSONObject.parseObject(path);
+            jobContent = path;
+        }catch (Exception e){
+            jobContent = getJobContent(path);
+        }
+
         Configuration config = Configuration.from(jobContent);
 
         return SecretUtil.decryptSecretKey(config);

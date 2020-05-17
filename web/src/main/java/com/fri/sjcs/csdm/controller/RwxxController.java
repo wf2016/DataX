@@ -21,6 +21,7 @@ public class RwxxController extends BaseController {
 
     @RequestMapping("/addread")
     public Object add(@RequestBody RwxxDto rwxxDto){
+
         rwxxDto.setId(UuidUtil.get32UUID());
         RwxxEntity rwxxEntity = BeanUtil.toBean(rwxxDto,RwxxEntity.class);
         rwxxService.getBaseMapper().insert(rwxxEntity);

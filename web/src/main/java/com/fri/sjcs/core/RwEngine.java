@@ -16,15 +16,16 @@ public class RwEngine {
 
     public void entry(String jobtype, RwxxDto rwxxDto){
 
-        Configuration rwjob = ConfigParser.parseCoreConfig(RwConstant.RW_CONF_PATH);
+        //Configuration rwjob = ConfigParser.parseCoreConfig(RwConstant.RW_CONF_PATH);
+        Configuration rwjob = ConfigParser.parseCoreConfig("/Users/wf/Desktop/datax/codes/DataX/web/src/main/resources/conf/rwjob.json");
 
         rwjob.set("jobtype",jobtype);
         rwjob.set("rwxx", JSON.toJSON(rwxxDto));
 
         if(jobtype.equals("read")){
-            rwjob.set("rdjob.job.content[0].reader",JSON.toJSON(rwxxDto.getRdjson()));
+            rwjob.set("rdjob.job.content[0].reader",Configuration.from(rwxxDto.getRdjson()));
         }else {
-            rwjob.set("wrjob.jsonjob.job.content[0].writer", rwxxDto.getWrjson());
+            rwjob.set("wrjob.jsonjob.job.content[0].writer", Configuration.from(rwxxDto.getWrjson()));
             rwjob.set("wrjob.filenames",JSON.toJSON(rwxxDto.getFilenames()));
         }
         this.start(rwjob);

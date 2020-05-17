@@ -25,8 +25,8 @@
             corn varchar(255),
             cwhere varchar(255),
             userwhere varchar(255),
-            rdjson varchar(255),
-            wrjson varchar(255),
+            rdjson clob,
+            wrjson clob,
             rwzt varchar(255),
             primary key (id))
     </update>

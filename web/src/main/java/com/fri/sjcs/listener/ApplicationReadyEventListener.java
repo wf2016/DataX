@@ -21,6 +21,7 @@ public class ApplicationReadyEventListener implements ApplicationListener<Applic
 
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
+		System.setProperty("datax.home","/Users/wf/Desktop/datax/codes/DataX/target/datax/datax");
 		try {
 			consumerService.count();
 		} catch (Exception e) {

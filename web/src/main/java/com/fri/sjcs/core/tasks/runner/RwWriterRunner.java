@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class RwWriterRunner extends RwAbstractRunner{
+public class RwWriterRunner extends RwAbstractRunner implements Runnable{
 
     private String path = null;
     private List<String> filenames = new LinkedList<>();
@@ -79,5 +79,11 @@ public class RwWriterRunner extends RwAbstractRunner{
         //执行发送操作
         String taskid = UuidUtil.get32UUID();
         fmqService.operatorFile(taskid, RwConstant.TRANSFOR_TYPE_RECEIVE,fmqVo);
+    }
+
+    @Override
+    public void run() {
+        this.prepare();
+        this.start();
     }
 }

@@ -8,7 +8,8 @@ public class RwConstant {
 
     // ----------------------------- 环境变量 ---------------------------------
 
-    public static String RW_HOME = System.getProperty("rw.home");
+    //public static String RW_HOME = System.getProperty("rw.home");
+    public static String RW_HOME = "/Users/wf/Desktop/datax/codes/DataX/web/src/main/resources";
 
     public static String RW_CONF_PATH = StringUtils.join(new String[] {
             RW_HOME, "conf", "rwjob.json" }, File.separator);

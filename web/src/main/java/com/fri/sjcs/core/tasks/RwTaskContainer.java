@@ -43,12 +43,12 @@ public class RwTaskContainer extends RwAbstractContainer {
             //
             rwReaderRunner = new RwReaderRunner();
             rwReaderRunner.setJobConf(rwTaskConfig);
-            this.readerThread = new Thread((Runnable) rwReaderRunner,"read");
+            this.readerThread = new Thread(rwReaderRunner,"read");
 
             //
             rwWriterRunner = new RwWriterRunner();
             rwWriterRunner.setJobConf(rwTaskConfig);
-            this.writerThread = new Thread((Runnable) rwWriterRunner,"write");
+            this.writerThread = new Thread(rwWriterRunner,"write");
 
         }
     }

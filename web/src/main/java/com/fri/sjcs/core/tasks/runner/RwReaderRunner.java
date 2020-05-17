@@ -7,6 +7,7 @@ import cn.hutool.core.lang.UUID;
 import com.alibaba.datax.common.plugin.AbstractTaskPlugin;
 import com.alibaba.datax.common.util.Configuration;
 import com.alibaba.datax.core.Engine;
+import com.alibaba.datax.core.util.ConfigParser;
 import com.alibaba.fastjson.JSON;
 import com.fri.sjcs.core.fmq.pojo.FMQOperatorVo;
 import com.fri.sjcs.core.fmq.service.FMQService;
@@ -27,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class RwReaderRunner extends RwAbstractRunner{
+public class RwReaderRunner extends RwAbstractRunner implements Runnable{
 
     private String path = null;
     private List<String> filenames = new LinkedList<>();
@@ -50,7 +51,8 @@ public class RwReaderRunner extends RwAbstractRunner{
 
     public void start(){
         //调用 datax engine
-        Configuration rdjob = Configuration.from((Map<String,Object>)this.getJobConf().get("rdjob"));
+        Configuration rdjob = ConfigParser.parse(JSON.toJSONString(this.getJobConf().get("rdjob")));
+        System.setProperty("datax.home","/Users/wf/Desktop/datax/codes/DataX/target/datax/datax");
         Engine engine = new Engine();
         engine.start(rdjob);
 
@@ -107,5 +109,11 @@ public class RwReaderRunner extends RwAbstractRunner{
         //执行发送操作
         //String taskid = "123456001";
         fmqService.operatorFile(taskid, RwConstant.TRANSFOR_TYPE_SEND,fmqVo);
+    }
+
+    @Override
+    public void run() {
+        this.prepare();
+        this.start();
     }
 }
