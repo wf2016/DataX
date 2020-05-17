@@ -66,7 +66,7 @@ public final class ConfigParser {
         return configuration;
     }
 
-    private static Configuration parseCoreConfig(final String path) {
+    public static Configuration parseCoreConfig(final String path) {
         return Configuration.from(new File(path));
     }
 

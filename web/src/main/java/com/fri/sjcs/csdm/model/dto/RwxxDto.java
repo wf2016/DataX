@@ -31,8 +31,10 @@ public class RwxxDto {
     String rdjson;
 
     //中心节点配置的目标json; 可能同时同步给多个不同的数据库
-    // ！注意 该json对象为数组
     String wrjson;
+
+    //写状态有效
+    String filenames[];
 
     //任务状态 未启动 运行中 已完成
     String rwzt;

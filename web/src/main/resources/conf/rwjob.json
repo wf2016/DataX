@@ -1,0 +1,140 @@
+{
+  "jobtype": "read",
+  "rwxx": {
+    "id":"123",
+    "rwid":"456",
+    "iscreate":"0",
+    "rwlx":"once",
+    "corn":"1 11 1",
+    "cwhere":"lmt",
+    "userwhere":"selc",
+    "rdjson":"123456",
+    "wrjson":"45455",
+    "rwzt":"done"
+  },
+  "rdjob": {
+    "job": {
+      "setting": {
+        "speed": {
+          "byte": 10485760
+        },
+        "errorLimit": {
+          "record": 0,
+          "percentage": 0
+        }
+      },
+      "content": [
+        {
+          "reader": {
+            "name": "mysqlreader",
+            "parameter": {
+              "username": "root",
+              "password": "LXJTlxjt1110!*#@",
+              "column": [
+                "id",
+                "name",
+                "remark",
+                "order_key"
+              ],
+              "connection": [
+                {
+                  "jdbcUrl": [
+                    "jdbc:mysql://134.175.47.162:3306/lxjt"
+                  ],
+                  "table": [
+                    "exam_type"
+                  ]
+                }
+              ],
+              "where": ""
+            }
+          },
+          "writer": {
+            "name": "txtfilewriter",
+            "parameter": {
+              "path": "./",
+              "fileName": "df",
+              "encoding": "utf-8",
+              "dateFormat": "yyyy-MM-dd",
+              "writeMode": "truncate",
+              "fieldDelimiter": "⚡"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "wrjob": {
+    "filenames":[""],
+    "jobjson": {
+      "job": {
+        "setting": {
+          "speed": {
+            "byte": 10485760
+          },
+          "errorLimit": {
+            "record": 0,
+            "percentage": 0.02
+          }
+        },
+        "content": [
+          {
+            "reader": {
+              "name": "txtfilereader",
+              "parameter": {
+                "path": [
+                  "./test.txt__53804474_e2f4_4bbf_bce7_b8fa36398d17"
+                ],
+                "encoding": "utf-8",
+                "fieldDelimiter": "⚡",
+                "column": [
+                  {
+                    "index": 0,
+                    "type": "Long"
+                  },
+                  {
+                    "index": 1,
+                    "type": "String"
+                  },
+                  {
+                    "index": 2,
+                    "type": "String"
+                  },
+                  {
+                    "index": 3,
+                    "type": "String"
+                  }
+                ]
+              }
+            },
+            "writer": {
+              "name": "mysqlwriter",
+              "parameter": {
+                "username": "root",
+                "password": "123456",
+                "writeMode": "insert",
+                "column": [
+                  "id",
+                  "name",
+                  "remark",
+                  "description"
+                ],
+                "session": [
+                  "set session sql_mode='ANSI'"
+                ],
+                "connection": [
+                  {
+                    "jdbcUrl": "jdbc:mysql://192.168.50.10:3306/zuihou_lxjt_tk_0000?useUnicode=true&characterEncoding=utf8",
+                    "table": [
+                      "exam_type_copy1"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
